@@ -1,14 +1,11 @@
 $(function(){
+   FastClick.attach(document.body);
+
   //二维数组
   var matrixArray = new Array();
   var count = 2;
-  refreshPanel(count);
-  for(var i = 0; i < count; i++){
-    matrixArray[i] = new Array();
-    for(var j = 0; j < count; j++){
-      matrixArray[i][j] = 0;
-    }
-  }
+  refreshUI();
+  refreshMatrix();
   
   var row, col, isSuccess = false;
   
@@ -65,8 +62,8 @@ $(function(){
     if(oddCount == count*count){
       isSuccess = true;
       count++;
-      refreshPanel(count);
-      refreshMatrix(count);
+      refreshUI();
+      refreshMatrix();
       resetStatus();
     }
   });
@@ -82,7 +79,7 @@ $(function(){
     }
   }
 
-  function refreshPanel(count){
+  function refreshUI(){
     $('#panel').empty();
     for(var i = 0; i < count; i++){
       $('#panel').append('<tr></tr>');
@@ -90,9 +87,11 @@ $(function(){
         $('tr').eq(i).append('<td data-x="'+i+'" data-y="'+j+'"></td>');
       }
     }
+    var score = count - 1;
+    $('#score').html(score);
   }
 
-  function refreshMatrix(count){
+  function refreshMatrix(){
     matrixArray = new Array();
     for(var i = 0; i < count; i++){
       matrixArray[i] = new Array();

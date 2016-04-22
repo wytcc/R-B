@@ -1,5 +1,5 @@
 body {
-  background: #FEFDF5;
+  background: #EAE9E7;
   font-family: '华文细黑', Helvetica, Arial, 'Helvetica Neue', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
   text-align: center;
 }
@@ -7,8 +7,11 @@ body {
 .rule {
   width: 240px;
   text-align: left;
-  padding-top: 10px;
   margin: 0 auto;
+}
+
+.score {
+  padding-bottom: 10px;
 }
 
 #panel {
@@ -20,7 +23,7 @@ body {
 
 td {
   border:1px solid #fff;
-  background-color:#000;
+  background-color:#141414;
   -webkit-transition: background-color 0.2s;
   -moz-transition: background-color 0.2s;
   transition: background-color 0.2s;
@@ -46,11 +49,11 @@ td:active {
 }
 
 .cell-red {
-  /*background-color:#CC0114;*/
-  background-color:#F96463;
+  background-color:#88242C;
+  /*background-color:#F96463;*/
 
 }
 
 .cell-black {
-  background-color:#000;
+  background-color:#141414;
 }

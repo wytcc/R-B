@@ -5,17 +5,22 @@
 	<meta name="viewport" content="width=device-width">
 	<title>Game</title>
 	<link rel="stylesheet" type="text/css" href="index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 	<h1>红与黑</h1>
+	<div class="score">
+		<span>当前关卡：</span>
+		<span id="score"></span>
+	</div>
 	<table id="panel">
 	</table>
 	<div class="rule">
 		<h3>游戏规则：</h6>
 		<p>点击方块，该方块所在的行和列的所有方块颜色翻转，当所有方块都为同一颜色时，本轮游戏结束，进入下一轮——每行每列的方块数加一。</p>
 	</div>
-	<script src="//cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
-	<script src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+	<script src="http://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
+	<script src="http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
