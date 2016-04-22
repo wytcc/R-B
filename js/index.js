@@ -13,9 +13,9 @@ $(function(){
   var row, col, isSuccess = false;
   
   $('#panel').on('click', 'td', function(e){
-    row = $(this).prevAll().length + 1;
-    col = $(this).parent().prevAll().length + 1;
-    
+    row = parseInt($(this).data('y')) + 1;
+    col = parseInt($(this).data('x')) + 1;
+
     for(var i = 0; i < count; i++){
       matrixArray[col-1][i]++;
       matrixArray[i][row-1]++;
@@ -86,9 +86,9 @@ $(function(){
     $('#panel').empty();
     for(var i = 0; i < count; i++){
       $('#panel').append('<tr></tr>');
-    }
-    for(var j = 0; j < count; j++){
-      $('tr').append('<td></td>');
+      for(var j = 0; j < count; j++){
+        $('tr').eq(i).append('<td data-x="'+i+'" data-y="'+j+'"></td>');
+      }
     }
   }
 
