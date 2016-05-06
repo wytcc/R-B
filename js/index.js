@@ -8,7 +8,7 @@ $(function(){
   refreshMatrix();
 
   //倒计时
-  var countdown = 60,
+  var countdown = 2,
   $time = $('#countdown');
 
   function timedCount()
@@ -23,6 +23,7 @@ $(function(){
       $('#result').html(count-1);
       $('body').addClass('modal-open');
       $('#myModal').addClass('in');
+      $('.modal-backdrop').addClass('in');
     }
   }
 
@@ -144,7 +145,7 @@ $(function(){
     refreshUI();
     refreshMatrix();
     resetStatus();
-    countdown = 60;
+    countdown = 2;
     timedCount();
   });
 });
