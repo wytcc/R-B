@@ -13,11 +13,31 @@
 		<span>当前关卡：</span>
 		<span id="score"></span>
 	</div>
+	<div class="countdown">
+		<span>剩余时间：</span>
+		<span id="countdown"></span>
+	</div>
 	<table id="panel">
 	</table>
 	<div class="rule">
-		<h3>游戏规则：</h6>
-		<p>点击方块，该方块所在的行和列的所有方块颜色翻转，当所有方块都为同一颜色时，本轮游戏结束，进入下一轮——每行每列的方块数加一。</p>
+		<h3>游戏规则：</h3>
+		<p>点击方块，该方块所在的行和列的所有方块颜色翻转，当所有方块都为红色时，本轮游戏结束，进入下一轮——每行每列的方块数加一。</p>
+	</div>
+
+	<div id="myModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<span>恭喜你，闯到第</span>
+					<span id="result"></span>
+					<span>关</span>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default">确定</button>
+					<button type="button" class="btn btn-again">再来</button>
+				</div>
+			</div>
+		</div>
 	</div>
 	<script src="http://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
 	<script src="http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>

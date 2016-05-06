@@ -1,24 +1,47 @@
 $(function(){
-   FastClick.attach(document.body);
+ FastClick.attach(document.body);
 
   //二维数组
   var matrixArray = new Array();
   var count = 2;
   refreshUI();
   refreshMatrix();
-  
+
+  //倒计时
+  var countdown = 60,
+  $time = $('#countdown');
+
+  function timedCount()
+  {
+    $time.html(countdown);
+    countdown--;
+    if(countdown > 0)
+      setTimeout(timedCount, 1000);
+    else{
+      $time.html(countdown);
+      isSuccess = true;
+      $('#result').html(count-1);
+      $('body').addClass('modal-open');
+      $('#myModal').addClass('in');
+    }
+  }
+
+  timedCount();
+
   var row, col, isSuccess = false;
   
   $('#panel').on('click', 'td', function(e){
     row = parseInt($(this).data('y')) + 1;
     col = parseInt($(this).data('x')) + 1;
 
-    for(var i = 0; i < count; i++){
-      matrixArray[col-1][i]++;
-      matrixArray[i][row-1]++;
+    if(!isSuccess){
+      for(var i = 0; i < count; i++){
+        matrixArray[col-1][i]++;
+        matrixArray[i][row-1]++;
+      }
+      matrixArray[col-1][row-1]--;
+      $(this).trigger('modify');
     }
-    matrixArray[col-1][row-1]--;
-    $(this).trigger('modify');
   });
   
   $('#panel').on('modify', function(e){
@@ -105,4 +128,23 @@ $(function(){
     isSuccess = false;
   }
 
+  $('.btn-default').on('click', function(event) {
+    event.preventDefault();
+    /* Act on the event */
+    $('body').removeClass('modal-open');
+    $('#myModal').removeClass('in');
+  });
+
+  $('.btn-again').on('click', function(event) {
+    event.preventDefault();
+    /* Act on the event */
+    $('body').removeClass('modal-open');
+    $('#myModal').removeClass('in');
+    count = 2;
+    refreshUI();
+    refreshMatrix();
+    resetStatus();
+    countdown = 60;
+    timedCount();
+  });
 });
